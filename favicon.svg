@@ -1,0 +1,48 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Bloc violet avec coins arrondis -->
+  <rect x="30" y="30" width="160" height="160" rx="24" fill="url(#gradientBlock)"/>
+
+  <!-- F net, sans dégradé, stoppé à la limite du bloc -->
+  <g>
+    <!-- Barre verticale -->
+    <rect x="120" y="55" width="30" height="110" fill="#151519"/>
+
+    <!-- Barre horizontale haute -->
+    <rect x="120" y="55" width="70" height="25" fill="#151519"/>
+
+    <!-- Barre horizontale médiane -->
+    <rect x="120" y="100" width="65" height="25" fill="#151519"/>
+  </g>
+
+  <!-- Burin frappant depuis le dessus du F (orientation NW → SE) -->
+  <g transform="rotate(45 135 70)">
+    <!-- Manche -->
+    <rect x="95" y="65" width="55" height="10" rx="3" fill="#151519"/>
+
+    <!-- Lame (pointe dirigée SE) -->
+    <polygon points="150,65 165,70 150,75" fill="#8a5bff"/>
+  </g>
+
+  <!-- Éclats de sculpture (inchangés) -->
+  <g fill="#D9D4FF" opacity="0.8">
+    <polygon points="150,85 155,80 152,88"/>
+    <polygon points="160,92 165,88 162,95"/>
+    <polygon points="148,100 154,97 150,105"/>
+  </g>
+
+  <g fill="#5c3bff" opacity="0.8">
+    <polygon points="145,90 148,86 150,92"/>
+    <polygon points="158,78 160,74 164,80"/>
+  </g>
+
+  <!-- Gradient violet pour le bloc -->
+  <defs>
+    <linearGradient id="gradientBlock" x1="30" y1="30" x2="190" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6b46ff"/>
+      <stop offset="50%" stop-color="#7c52ff"/>
+      <stop offset="100%" stop-color="#9168ff"/>
+    </linearGradient>
+  </defs>
+
+</svg>

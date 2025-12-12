@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Forecraft – Transformez n'importe quelle idée en prompt IA parfait en quelques secondes</title>
+  <meta name="description" content="7 cadres avancés d'ingénierie de prompts (RACE, CARE, CREATE, ROSES, CRAFT…). Créez des prompts puissants pour l'IA.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="96x96" href="https://res.cloudinary.com/dsxd8jvxz/image/upload/v1765302553/favicon-96x96_aexq1y.ico">
+  <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/dsxd8jvxz/image/upload/v1765302341/favicon-96x96_aexq1y.ico">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/src/css/auth.css">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Forecraft – Générateur de prompts IA">
+  <meta property="og:description" content="Transformez n'importe quelle idée en prompt IA parfait en quelques secondes avec nos 7 cadres éprouvés.">
+  <meta property="og:image" content="https://res.cloudinary.com/dsxd8jvxz/image/upload/v1765302553/forecraft-og.jpg">
+  <meta property="og:url" content="https://forecraft.ai">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Forecraft – 7 cadres de prompts avancés">
+  <meta name="twitter:description" content="Générez instantanément des prompts IA parfaits avec RACE, CARE, CREATE et plus encore.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dsxd8jvxz/image/upload/v1765302553/forecraft-og.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://forecraft.ai">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Forecraft">
+  
+  <!-- Configuration Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js"></script>
+  <script>
+    // Configuration de Supabase (à remplacer par vos clés réelles)
+    window.supabaseUrl = 'https://frqpbfbhdruailxlbjfw.supabase.co';
+    window.supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+  </script>
+</head>
+
+<body>
+  <!-- En-tête avec navigation -->
+  <header>
+    <!-- La barre de navigation sera injectée ici par JavaScript -->
+  </header>
+
+  <div class="container">
+    <div class="header">
+      <img src="favicon.svg" alt="logo" width="64" height="64" />
+      <div class="header-content">
+        <h1>Forecraft – Générateur de prompts IA</h1>
+        <div class="tagline">Créez le début. Maîtrisez la fin.</div>
+        <div class="description">Transformez n'importe quelle idée en prompt IA parfait — en quelques secondes.</div>
+        <button class="try-now" id="main-cta">Essayez maintenant !</button>
+        <div class="free-offer">Un modèle gratuit avec des itérations illimitées</div>
+      </div>
+    </div>
+    
+    <div class="content-wrapper">
+      <div class="input-section">
+        <button class="tips-toggle">Tips for Best Results</button>
+        <div class="tips">
+          <ul>
+            <li>Pick the right template for your task.</li>
+            <li>Be specific: roles, goals, context.</li>
+            <li>Specify tone, format, and measurable goals.</li>
+            <li>Define must-haves and avoid.</li>
+            <li>Give examples: real situations or data.</li>
+            <li>Test & tweak: adjust after the first result.</li>
+          </ul>
+        </div>
+
+        <div class="form-section">
+          <div class="top-row">
+            <div style="flex:1">
+              <h2 style="margin-top: 0;">Choose your template :</h2>
+              <select id="templateSelect"></select>
+              <div id="templateDomain" class="template-domain"></div>
+            </div>
+          </div>
+          
+          <div id="dynamicFields" class="fields">
+            <div class="select-template-message">Please select a template to get started</div>
+          </div>
+          
+          <div class="actions-bottom hidden">
+            <button id="generateBtn" class="generate-btn">
+              <span>Generate Prompt</span>
+            </button>
+            <button id="copyBtn" class="copy-btn">
+              <span>Copy to clipboard</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="copy-icon">
+                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="output-section">
+        <h2>Result</h2>
+        <div id="result" class="result">The generated prompt will appear here.</div>
+      </div>
+    </div>
+
+    <!-- Pied de page -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Forecraft</h3>
+        <p>Créez des prompts IA puissants en quelques clics.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="/templates">Modèles</a></li>
+          <li><a href="/pricing">Tarifs</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="/terms">Conditions d'utilisation</a></li>
+          <li><a href="/privacy">Politique de confidentialité</a></li>
+          <li><a href="/cookies">Politique des cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Forecraft. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  
+  <!-- Script pour initialiser Supabase -->
+  <script type="module">
+    import { supabase } from './src/config/supabase.js';
+    
+    // Rendre Supabase disponible globalement pour le débogage
+    window.supabase = supabase;
+    
+    // Vérifier l'état d'authentification au chargement
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        console.log('Utilisateur connecté:', session.user);
+      } else {
+        console.log('Aucun utilisateur connecté');
+      }
+    });
+    
+    // Écouter les changements d'authentification
+    supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Changement d\'état d\'authentification:', event);
+      console.log('Session:', session);
+      
+      // Mettre à jour l'interface utilisateur en fonction de l'état d'authentification
+      const authElements = document.querySelectorAll('[data-auth-state]');
+      authElements.forEach(el => {
+        const showWhen = el.getAttribute('data-auth-state');
+        const isAuthenticated = !!session;
+        el.style.display = (showWhen === 'authenticated') === isAuthenticated ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
